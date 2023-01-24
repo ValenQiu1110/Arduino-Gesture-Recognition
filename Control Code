@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Nov 17 15:03:31 2022
+
+@author: jiayun qiu
+"""
+import pyautogui
+# -*- coding: utf-8 -*-
+import serial
+import time
+
+serial1 = serial.Serial('com3',9600)  #/dev/ttyUSB0
+if serial1.isOpen() :
+    print("open success")
+else :
+    print("open failed")
+
+
+def main():
+    global serial1
+    time.sleep(0.1) 
+    num=serial1.inWaiting()
+            
+    if num: 
+        try:  
+            data= str(serial1.read(num)) 
+            print(data)
+            if data.find("Right") > 0:
+                print("right")
+                pyautogui.press('right')
+            if data.find("Left") > 0:
+                print("left")
+                pyautogui.press('left')
+        except: 
+            pass
+
+while True:
+    main()
+
+
