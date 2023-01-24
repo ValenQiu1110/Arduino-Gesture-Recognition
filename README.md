@@ -1,4 +1,4 @@
-# Rave-Gesture-Recognition
+# Arduino-Gesture-Recognition
 
 This is an Arduino gesture recognition project.
 
